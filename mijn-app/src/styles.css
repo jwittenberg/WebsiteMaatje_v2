@@ -54,22 +54,12 @@ body{
 }
 
 /* ===== Header / Nav ===== */
-.site-header{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  background: color-mix(in oklab, var(--bg) 85%, transparent);
-  border-bottom: 1px solid color-mix(in oklab, var(--stroke), transparent 40%);
-  backdrop-filter: blur(10px);
-}
-
-/* Alleen layout in de inner header (geen bg/border meer hier) */
-.site-header .header{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-block: 16px;
+/* Alleen layout, géén bg/border/sticky hier */
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-block:16px;
 }
 .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--text); font-weight:800; letter-spacing:.2px}
 .logo{display:inline-flex; gap:.55rem; align-items:center; font-weight:800}
@@ -100,12 +90,7 @@ body{
   }
   .nav a, .nav .btn, .nav .btn--ghost{ padding-block:.8rem; }
 }
-@supports(padding:max(0px)){
-  .header{
-    padding-left: max(var(--page-pad), env(safe-area-inset-left, 0px));
-    padding-right:max(var(--page-pad), env(safe-area-inset-right,0px));
-  }
-}
+
 
 /* ===== Buttons ===== */
 .btn,.btn--ghost,.btn--icon{ text-decoration:none; }
@@ -385,13 +370,6 @@ ul,.list{ list-style:none; padding-left:0; margin:0 }
 }
 
 
-/* Theme toggle icon groter + dikker */
-.btn--icon .icon {
-  width: 1.2rem;  
-  height: 1.2rem;
-  stroke-width: 2.5;  /* standaard is 1.5 bij Heroicons, dit maakt lijnen vetter */
-  color: var(--text);
-}
 /* Basis btn: neutrale achtergrond */
 .btn {
   --pY:.62rem; --pX:1rem;
@@ -457,4 +435,64 @@ ul,.list{ list-style:none; padding-left:0; margin:0 }
   transform: translateY(-2px);
   background-position: 100% 0;
   box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+/* Actiesblok rechts (theme + burger naast elkaar) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin-left: auto; /* duwt acties naar rechts als nav small is */
+}
+
+/* Icoon iets groter/vetter */
+.btn--icon .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  stroke-width: 2.5;
+}
+
+/* Desktop: burger verbergen, theme mag zichtbaar blijven */
+@media (min-width: 901px){
+  .nav-toggle { display: none; }
+}
+
+/* Mobiel: nav zelf is hidden (zoals je al had), actions blijven rechts staan */
+@media (max-width: 900px){
+  .nav { display: none; }
+  .nav-actions { gap: .6rem; }
+}
+/* Full-bleed header wrapper */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: color-mix(in oklab, var(--bg) 85%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--stroke), transparent 40%);
+  backdrop-filter: blur(10px);
+}
+
+/* Zorg dat hamburger gelijk is aan de theme-toggle */
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.5rem;   /* zelfde vierkante hitbox als icon-btn */
+  height: 2.5rem;
+
+  padding: 0;      /* geen extra padding, zodat hij echt vierkant blijft */
+  font-size: 1.25rem; /* icoon-grootte */
+  line-height: 1;
+
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .18s ease;
+}
+
+.nav-toggle:hover {
+  background: var(--card);
 }

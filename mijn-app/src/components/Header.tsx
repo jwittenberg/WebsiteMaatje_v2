@@ -10,7 +10,7 @@ const Logo: React.FC = () => (
 )
 
 export const Header: React.FC = () => {
-  const [dark, setDark] = useState<boolean>(false)
+  const [dark, setDark] = useState<boolean>(true)
 
   // initial theme from DOM/localStorage
   useEffect(() => {
@@ -30,31 +30,41 @@ export const Header: React.FC = () => {
   }
 
   return (
-  <header className="site-header">
-    <div className="container header">
-      <Logo />
-      <nav className="nav">
-        <a href="#pakketten">Pakketten</a>
-        <a href="#features">Wat je krijgt</a>
-        <a href="#reviews">Reviews</a>
+    <header className="site-header">
+      <div className="container header">
+        <Logo />
+  
+  
+        {/* Acties rechts: theme toggle + burger */}
+        <div className="nav-actions">
 
-        {/* Contact zonder border */}
-        <Button as="a" href="#contact" variant="ghost">Contact</Button>
-
-        {/* Professionele icon toggle */}
-        <button className="btn btn--icon" aria-label="Schakel thema" onClick={toggleTheme}>
-          {dark ? <SunIcon className="icon" /> : <MoonIcon className="icon" />}
-        </button>
-
-        {/* Altijd witte CTA */}
-        
-        <Button as="a" href="#intake" size="lg" className="btn--cta">
-          Gratis intake
-        </Button>
+        {/* Hoofdnav (links + CTA) */}
+        <nav className="nav">
+          <a href="#pakketten">Pakketten</a>
+          <a href="#features">Wat je krijgt</a>
+          <a href="#reviews">Reviews</a>
+  
+          <Button as="a" href="#contact" variant="ghost">Contact</Button>
+          <button
+            className="btn btn--icon"
+            aria-label="Schakel thema"
+            onClick={toggleTheme}
+          >
+            {dark ? <SunIcon className="icon" /> : <MoonIcon className="icon" />}
+          </button>
+          
         </nav>
 
-      <button className="nav-toggle" aria-label="Menu" onClick={toggleNav}>☰</button>
-    </div>
-  </header>
+        
+          <Button as="a" href="#intake" size="lg" className="btn--cta">
+            Gratis intake
+          </Button>
+  
+          <button className="nav-toggle" aria-label="Menu" onClick={toggleNav}>
+            ☰
+          </button>
+        </div>
+      </div>
+    </header>
   )
 }
