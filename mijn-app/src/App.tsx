@@ -8,33 +8,59 @@ import { CTA } from './components/CTA'
 import { Footer } from './components/Footer'
 import { PricingTable } from './components/PricingTable'
 import { FAQ } from './components/FAQ'
-import type { PricePlan } from './types/pricing'
+import {
+  GlobeAltIcon,
+  EnvelopeIcon,
+  ChartBarIcon,
+  BoltIcon,
+  ServerIcon,
+  SparklesIcon,
+  DevicePhoneMobileIcon,
+  ShieldCheckIcon
+} from "@heroicons/react/24/outline"
+
+import type { PricePlan } from "./types/pricing"
 
 const pricingPlans: PricePlan[] = [
   {
-    name: 'Starter',
+    name: "Starter",
     monthly: 29,
-    yearly: 290, // ~2 maanden korting
-    blurb: 'Snel online met een strakke one-pager.',
-    features: ['1 pagina', 'SSL & domein', 'Basis SEO', 'E-mail support'],
-    cta: 'Start met Starter'
+    yearly: 290,
+    blurb: "Snel online met een strakke one-pager.",
+    features: [
+      { icon: GlobeAltIcon, label: "Eigen domein & SSL" },
+      { icon: EnvelopeIcon, label: "Zakelijke e-mail" },
+      { icon: ChartBarIcon, label: "Basis analytics" },
+      { icon: BoltIcon, label: "Snelle hosting" }
+    ],
+    cta: "Start met Starter"
   },
   {
-    name: 'Pro',
+    name: "Pro",
     monthly: 79,
     yearly: 790,
-    blurb: 'Groei met meer pagina’s en integraties.',
-    features: ['Tot 10 pagina’s', 'Formulieren & analytics', 'Snelle hosting', 'Chat & e-mail support'],
-    cta: 'Ga voor Pro',
+    blurb: "Groei met meer pagina’s en integraties.",
+    features: [
+      { icon: GlobeAltIcon, label: "Tot 10 pagina’s" },
+      { icon: DevicePhoneMobileIcon, label: "Responsive design" },
+      { icon: SparklesIcon, label: "SEO optimalisatie" },
+      { icon: ShieldCheckIcon, label: "Uitgebreide beveiliging" }
+    ],
+    cta: "Ga voor Pro",
     highlight: true
   },
   {
-    name: 'All-in',
+    name: "All-in",
     monthly: 149,
     yearly: 1490,
-    blurb: 'Volledig ontzorgd: design, hosting en data.',
-    features: ['Onbeperkt pagina’s', 'Headless CMS / datahosting', 'Performance & SEO pro', 'Prioriteit support'],
-    cta: 'Kies All-in'
+    blurb: "Volledig ontzorgd: design, hosting en data.",
+    features: [
+      { icon: ServerIcon, label: "Onbeperkte hosting & CMS" },
+      { icon: GlobeAltIcon, label: "Onbeperkte pagina’s" },
+      { icon: SparklesIcon, label: "Performance & SEO Pro" },
+      { icon: ShieldCheckIcon, label: "Prioriteit support" }
+    ],
+    cta: "Kies All-in"
   }
 ]
 

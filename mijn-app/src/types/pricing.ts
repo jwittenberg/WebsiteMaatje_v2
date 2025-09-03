@@ -1,11 +1,18 @@
-export type BillingCycle = 'monthly' | 'yearly'
+import type { ElementType } from "react"
+
+export type BillingCycle = "monthly" | "yearly"
+
+export type Feature = {
+  icon: ElementType
+  label: string
+}
 
 export type PricePlan = {
   name: string
-  monthly: number   // prijs per maand (in EUR)
-  yearly: number    // prijs per jaar (in EUR) - mag korting bevatten
+  monthly: number
+  yearly: number
   blurb: string
-  features: string[]
+  features: Feature[]
   cta: string
   highlight?: boolean
 }

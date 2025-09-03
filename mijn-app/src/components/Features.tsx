@@ -1,24 +1,57 @@
 import React from 'react'
+import {
+  SparklesIcon,
+  BoltIcon,
+  DevicePhoneMobileIcon,
+  ShieldCheckIcon,
+  ChatBubbleLeftRightIcon,
+  RocketLaunchIcon
+} from "@heroicons/react/24/outline"
 
-const items: [string,string][] = [
-  ['Razendsnel', 'Vite + moderne best-practices voor topsnelheid.'],
-  ['SEO-klaar', 'Schone HTML, meta’s en core web vitals in scope.'],
-  ['Schaalbaar', 'Van one-pager tot headless CMS en datahosting.'],
-  ['Veilig', 'HTTPS, updates en monitoring geregeld.'],
-  ['Design op maat', 'UI-kit en componenten afgestemd op jouw merk.'],
-  ['Support', 'Menselijke helpdesk via chat/mail, duidelijke SLAs.'],
+const features = [
+  {
+    icon: SparklesIcon,
+    title: "Modern design",
+    text: "Altijd een frisse look die aansluit bij jouw merk."
+  },
+  {
+    icon: BoltIcon,
+    title: "Supersnel",
+    text: "Geoptimaliseerd voor snelheid en SEO."
+  },
+  {
+    icon: DevicePhoneMobileIcon,
+    title: "Responsive",
+    text: "Perfect op mobiel, tablet én desktop."
+  },
+  {
+    icon: ShieldCheckIcon,
+    title: "Beveiligd",
+    text: "Gratis SSL en veilige hosting inbegrepen."
+  },
+  {
+    icon: ChatBubbleLeftRightIcon,
+    title: "Persoonlijk contact",
+    text: "Altijd snel antwoord en een vast aanspreekpunt."
+  },
+  {
+    icon: RocketLaunchIcon,
+    title: "Groei mee",
+    text: "Makkelijk uitbreiden wanneer je bedrijf groeit."
+  }
 ]
 
 export const Features: React.FC = () => (
-  <section id="features" className="container features reveal">
-    <h2>Wat je krijgt</h2>
-    <div className="grid">
-      {items.map(([t,d], i) => (
-        <div className="feature glass reveal" key={t + i}>
-          <h3>{t}</h3>
-          <p>{d}</p>
-        </div>
-      ))}
-    </div>
-  </section>
+  <section className="features container reveal">
+  <h2>Wat je krijgt</h2>
+  <div className="grid">
+    {features.map((f, i) => (
+      <div key={i} className="feature reveal delay-1">
+        <f.icon className="icon-lg" aria-hidden="true" />
+        <h3>{f.title}</h3>
+        <p>{f.text}</p>
+      </div>
+    ))}
+  </div>
+</section>
 )
