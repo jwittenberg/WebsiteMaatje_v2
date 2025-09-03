@@ -6,7 +6,9 @@ export const CTA: React.FC = () => (
     <div className="cta__box glass">
       <h2>Klaar voor een website zonder zorgen?</h2>
       <p>Plan een gratis intake — we denken graag mee en geven eerlijk advies.</p>
-      <Button as="a" href="#contact" size="lg">Plan gratis intake</Button>
+      <Button as="a" href="#contact" style={{ color: "var(--text)" }} size="lg">
+        Plan gratis intake
+      </Button>
     </div>
   </section>
 )

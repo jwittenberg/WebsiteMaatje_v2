@@ -373,3 +373,76 @@ ul,.list{ list-style:none; padding-left:0; margin:0 }
   font-size:.95rem;
   line-height:1.5;
 }
+
+
+.btn--icon .icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--text);
+}
+/* Basis btn: neutrale achtergrond */
+.btn {
+  --pY:.62rem; --pX:1rem;
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:var(--pY) var(--pX);
+  border-radius:var(--btn-radius);
+  border: 1px solid transparent;
+  font-weight:600; font-size:.95rem; line-height:1;
+  cursor:pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-position .25s ease;
+}
+
+/* Gradient variant expliciet */
+.btn--gradient {
+  background: linear-gradient(100deg, var(--btn-grad-start), var(--btn-grad-end));
+  color: #fff;
+  box-shadow: var(--btn-shadow-1), var(--btn-shadow-2);
+}
+.btn {
+  text-decoration: none;
+  border: none;             /* geen native border */
+  outline: none;            /* geen standaard outline */
+}
+.btn:focus,
+.btn:active {
+  outline: none;
+  border: none;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+/* Gradient CTA style (uniform voor alle call-to-actions) */
+.btn--cta {
+  background: linear-gradient(100deg, var(--btn-grad-start), var(--btn-grad-end));
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  background-size: 200% 100%;
+  transition: transform .18s ease, background-position .25s ease, box-shadow .2s ease;
+  box-shadow: var(--btn-shadow-1), var(--btn-shadow-2);
+}
+
+.btn--cta:hover {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+/* CTA: altijd gradient, ook in nav/header */
+.nav .btn--cta,
+.header .btn--cta {
+  background: linear-gradient(100deg, var(--btn-grad-start), var(--btn-grad-end));
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  background-size: 200% 100%;
+  box-shadow: var(--btn-shadow-1), var(--btn-shadow-2);
+  transition: transform .18s ease, background-position .25s ease, box-shadow .2s ease;
+}
+
+.nav .btn--cta:hover,
+.header .btn--cta:hover {
+  transform: translateY(-2px);
+  background-position: 100% 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
