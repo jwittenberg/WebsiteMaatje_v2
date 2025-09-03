@@ -54,12 +54,22 @@ body{
 }
 
 /* ===== Header / Nav ===== */
-.header{
-  display:flex; align-items:center; justify-content:space-between;
-  padding-block:16px; position:sticky; top:0; z-index:10;
-  backdrop-filter:blur(10px);
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
   background: color-mix(in oklab, var(--bg) 85%, transparent);
-  border-bottom:1px solid color-mix(in oklab, var(--stroke), transparent 40%);
+  border-bottom: 1px solid color-mix(in oklab, var(--stroke), transparent 40%);
+  backdrop-filter: blur(10px);
+}
+
+/* Alleen layout in de inner header (geen bg/border meer hier) */
+.site-header .header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 16px;
 }
 .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--text); font-weight:800; letter-spacing:.2px}
 .logo{display:inline-flex; gap:.55rem; align-items:center; font-weight:800}
@@ -375,9 +385,11 @@ ul,.list{ list-style:none; padding-left:0; margin:0 }
 }
 
 
+/* Theme toggle icon groter + dikker */
 .btn--icon .icon {
-  width: 1.2rem;
+  width: 1.2rem;  
   height: 1.2rem;
+  stroke-width: 2.5;  /* standaard is 1.5 bij Heroicons, dit maakt lijnen vetter */
   color: var(--text);
 }
 /* Basis btn: neutrale achtergrond */

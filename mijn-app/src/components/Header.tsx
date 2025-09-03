@@ -30,7 +30,8 @@ export const Header: React.FC = () => {
   }
 
   return (
-    <header className="container header">
+  <header className="site-header">
+    <div className="container header">
       <Logo />
       <nav className="nav">
         <a href="#pakketten">Pakketten</a>
@@ -53,6 +54,7 @@ export const Header: React.FC = () => {
         </nav>
 
       <button className="nav-toggle" aria-label="Menu" onClick={toggleNav}>☰</button>
-    </header>
+    </div>
+  </header>
   )
 }
